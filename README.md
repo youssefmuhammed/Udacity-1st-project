@@ -11,7 +11,7 @@
   
   
   # the end point 
-  http://localhost:3000/api/img/?filename=portfolio[]&width=["enter a positive number"]&height=["enter a positive number"]
+  http://localhost:3000/api/img/?filename=portfolio[]&width=[ "enter a positive number"]&height=["enter a positive number"]
   
  # images name 
  1-portfolio1
