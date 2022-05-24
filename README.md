@@ -11,5 +11,10 @@
   
   
   # the end point 
-  http://localhost:${port}/
+  http://localhost:3000/api/img/?filename=portfolio[]&width=[]&height=[]
+  
+ # images name 
+ 1-portfolio1
+ 2-portfolio2
+ 3-portfolio3
   
