@@ -1,9 +1,5 @@
 import supertest from 'supertest';
 import app from '../index';
-import sharp from 'sharp';
-// import resize from '../routes/imageProcess';
-// import { buffer } from 'stream/consumers';
-import fs from 'fs';
 
 
 const request = supertest(app);
@@ -15,12 +11,13 @@ describe('Test endpoint responses', () => {
 )});
 
 
-describe('the output image', ()=> {
-    sharp ('../test/portfolio1.png').resize(400,400);
-    it ('get the image', async ()=> {
-        fs.readFile('../test/portfolio1.png', function () {
-        expect('../test/portfolio1.png').toBe('../test/portfolio1.png');
+
+describe('endpoint: /api/img', (): void => {
+    it('gets /api/img/?filename=portfolio1&width=200&height=200', async (): Promise<void> => {
+      const response: supertest.Response = await request.get(
+        '/api/img?filename=portfolio1&width=200&height=200'
+      );
+
+      expect(response.status).toBe(200);
     })
-
-
-})});
+});

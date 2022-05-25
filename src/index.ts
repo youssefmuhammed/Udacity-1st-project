@@ -1,15 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import express from 'express';
-import resize from './routes/imageProcess';
 import route from './routes/resize';
-
 
 const app = express();
 const port = 3000;
 
 //http://localhost:3000/api/img/?filename=portfolio1&width=200&height=400 "URL full name"
-
 
 
 app.listen(port, () => {
@@ -21,9 +18,7 @@ app.get('/', (req : express.Request, res: express.Response) => {
 } ) ;
 
 //app.get('/api/img', resize, uploadimg, (_req) => {});
-app.use('/api',route, resize);
-
-
+app.use('/api',route);
 
 
 export default app ;

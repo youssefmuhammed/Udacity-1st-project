@@ -14,10 +14,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
 const index_1 = __importDefault(require("../index"));
-const sharp_1 = __importDefault(require("sharp"));
+//import sharp from 'sharp';
 // import resize from '../routes/imageProcess';
 // import { buffer } from 'stream/consumers';
-const fs_1 = __importDefault(require("fs"));
+//import fs from 'fs';
 const request = (0, supertest_1.default)(index_1.default);
 describe('Test endpoint responses', () => {
     it('gets the api endpoint', () => __awaiter(void 0, void 0, void 0, function* () {
@@ -25,11 +25,9 @@ describe('Test endpoint responses', () => {
         expect(response.status).toBe(200);
     }));
 });
-describe('the output image', () => {
-    (0, sharp_1.default)('../test/portfolio1.png').resize(400, 400);
-    it('get the image', () => __awaiter(void 0, void 0, void 0, function* () {
-        fs_1.default.readFile('../test/portfolio1.png', function () {
-            expect('../test/portfolio1.png').toBe('../test/portfolio1.png');
-        });
+describe('endpoint: /api/img', () => {
+    it('gets /api/img/?filename=portfolio1&width=200&height=200', () => __awaiter(void 0, void 0, void 0, function* () {
+        const response = yield request.get('/api/img?filename=portfolio1&width=200&height=200');
+        expect(response.status).toBe(200);
     }));
 });

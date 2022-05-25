@@ -6,7 +6,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 const express_1 = __importDefault(require("express"));
-const imageProcess_1 = __importDefault(require("./routes/imageProcess"));
 const resize_1 = __importDefault(require("./routes/resize"));
 const app = (0, express_1.default)();
 const port = 3000;
@@ -18,5 +17,5 @@ app.get('/', (req, res) => {
     res.send('Image Processing API');
 });
 //app.get('/api/img', resize, uploadimg, (_req) => {});
-app.use('/api', resize_1.default, imageProcess_1.default);
+app.use('/api', resize_1.default);
 exports.default = app;
