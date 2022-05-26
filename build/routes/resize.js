@@ -22,7 +22,7 @@ route.get('/img', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const width = req.query.width;
     const path = `./img/new_img/${filename}${height}&${width}.png`;
     if (fs_1.default.existsSync(path)) {
-        console.log("file exists");
+        console.log('file exists');
         fs_1.default.readFile(`./img/new_img/${filename}${height}&${width}.png`, function (_err, data) {
             //res.writeHead(200, { 'Content-Type': 'image/png' });
             res.end(data);

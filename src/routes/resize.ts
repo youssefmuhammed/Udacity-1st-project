@@ -16,19 +16,17 @@ route.get('/img', async (req: express.Request, res: express.Response) => {
     fs.readFile(
       `./img/new_img/${filename}${height}&${width}.png`,
       function (_err, data) {
-        //res.writeHead(200, { 'Content-Type': 'image/png' });
         res.end(data);
       }
     );
   } else {
     console.log("file doesn't exists");
     if (parseInt(height as string) > 0 && parseInt(width as string) > 0) {
-      resize(filename, height as string, width as string);
+     await resize(filename, height as string, width as string);
 
       fs.readFile(
         `./img/new_img/${req.query.filename}${req.query.height}&${req.query.width}.png`,
         function (_err, data) {
-          //res.writeHead(200, { 'Content-Type': 'image/png' });
           res.end(data);
         }
       );

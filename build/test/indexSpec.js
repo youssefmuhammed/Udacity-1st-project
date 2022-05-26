@@ -38,9 +38,9 @@ describe('endpoint: /api/img', () => {
     }));
 });
 describe('sharp function', () => {
-    it('should resize the image', () => {
-        (0, imageProcess_1.default)('portfolio1', '400', '400');
+    it('should resize the image', () => __awaiter(void 0, void 0, void 0, function* () {
+        yield (0, imageProcess_1.default)('portfolio1', '400', '400');
         const source = `./img/new_img/portfolio1400&400.png`;
         expect(fs_1.default.existsSync(source)).toBe(true);
-    });
+    }));
 });

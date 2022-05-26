@@ -1,6 +1,5 @@
 import supertest from 'supertest';
 import app from '../index';
-import sharp from 'sharp';
 import fs from 'fs';
 import resize from '../routes/imageProcess';
 
@@ -32,9 +31,9 @@ describe('endpoint: /api/img', (): void => {
   });
 });
 
-describe('sharp function', (): void => {
-  it('should resize the image', () => {
-    resize('portfolio1', '400', '400');
+describe('sharp function',  (): void => {
+  it('should resize the image', async () => {
+   await  resize('portfolio1', '400', '400');
     const source = `./img/new_img/portfolio1400&400.png`;
     expect(fs.existsSync(source)).toBe(true);
   });
